@@ -19,7 +19,7 @@ function imc() {
                 document.imcform.altura.focus();
         } else { 
                 var quadrado = (altura * altura);
-                var calculo = (peso/quadrado);
+                var calculo = (peso/quadrado)*10000;
                 document.imcform.result.value = calculo;
                 
                 if (calculo < 18.5) {
@@ -33,6 +33,13 @@ function imc() {
                   } else if ((calculo > 34.9) && (calculo < 40)) {;
                   } else if (calculo >= 40) {
                 }
+              window.alert(resul,calculo);
+               span = document.createElement('span');
+                    span.innerHTML = result;
+                    
+                    
+                    d.getElementById('msg').appendChild(span);
+
         }
 }
 </script>
@@ -47,7 +54,7 @@ function imc() {
       </section>
 
       <section class="middle tab-bar-section">
-        <h1 class="title">Corpo & Saúde</h1>
+        <h1 class="title"><a href="index.php">Corpo & Saúde</h1></a>
       </section>
     </nav>
 
@@ -67,22 +74,44 @@ function imc() {
      		 <div class="row">
      		 		<form action="#" method="post" name="imcform" id="imcform">  
 				  
-						    <div class="large-4 columns">
+						    <div class="large-2 columns">
 						      <label>PESO (KG)
 						        <input type="text" name="peso" placeholder="ex.:80" />
 						      </label>
 						    </div>
-						    <div class="large-4 columns">
-						      <label>Altura (CM)
+						    <div class="large-2 columns">
+						      <label>ALTURA (CM)
 						        <input type="text" name="altura" placeholder="ex.:180" />
 						      </label>
 						    </div>
+                <div class="row">
+                <div class="large-3 columns">
+                  <label>SEXO</label>
+                    <input type="radio" name="sexo" value="masculino" id="m"><label for="masculino">MASCULINO</label>
+                    <input type="radio" name="sexo" value="feminino" id="f"><label for="feminino">FEMININO</label>
+                </div>  
+                </div>
 						    <br>
-						    <div class="row">
-						    	 <div class="small-3 small-left columns">
+						    	 <div class="small-2 small-left columns">
 						    	 	<a onclick="imc()" type="button" class="button [radius round]">Calcular</a>
 						    	 </div>
-						    </div>
+						    <hr>
+                  <div class="row">
+                     <input type="text" name="result" id="result" />
+                  </div>
+                <hr>
+                <div class="row">
+                  <div class="large-6 columns">
+                    <div class="panel">
+                      <h5>Abaixo do peso </h5> 
+                      <h5>Peso normal</h5>
+                      <h5>Sobrepeso</h5>
+                      <h5>Obesidade</h5>
+                      <h5>Obesidade Mórbida</h5>
+
+                    </div>
+                  </div>
+                </div>
 		     		 			<a class="close-reveal-modal">x</a>
   					</form>
 			</div>
